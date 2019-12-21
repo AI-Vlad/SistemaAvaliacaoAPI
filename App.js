@@ -8,13 +8,13 @@ const env = process.NODE_ENV || 'development'
 const config = require('./config.json')[env]
 
 //Importações dos modelos
-const Convidado = require('./model/Convidado')
-const Contato = require('./model/Contato')
-const Produto = require('./model/Produto')
-const Cliente = require('./model/Cliente')
-const Usuario = require('./model/Usuario');
+
+
+const Usuario = require('./model/Usuario')
+const UsuarioScan = require('./model/UsuarioScan');
 const Compra = require("./model/Compra");
-const Setor = require("./model/Setor");
+
+const Ficha = require("./model/Ficha")
 
 
 class App {
@@ -34,55 +34,48 @@ class App {
         this.app.use(Cors())
 
         //Conectando com o banco mLab
-        Mongoose.connect(`mongodb://${config.db.user}:${config.db.password}@${config.db.url}:${config.db.port}/${config.db.nome}`, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false
-        })
+        Mongoose.connect('mongodb+srv://Teste:testesenha@cluster0-1kj4i.mongodb.net/test?retryWrites=true&w=majority', {
+                useNewUrlParser: true,
+
+                useUnifiedTopology: true,
+
+                useFindAndModify: false
+            },
+
+
+        )
 
         //Instanciando os modelos
-        new Convidado()
-        new Produto()
-        new Cliente()
+
         new Usuario()
+        new UsuarioScan()
         new Compra()
-        new Contato()
-        new Setor()
+        new Ficha()
 
         //Importações das rotas
-        const ConvidadoRoute = require('./routes/ConvidadosRoute')
-        const ContatoRoute = require('./routes/ContatosRoute')
-        const ProdutoRoute = require('./routes/ProdutosRoute')
+
         const CompraRoute = require('./routes/ComprasRoute')
         const UsuarioRoute = require('./routes/UsuariosRoute')
-        const ClienteRoute = require('./routes/ClientesRoute')
-        const SetorRoute = require('./routes/SetoresRoute')
+        const UsuarioScanRoute = require('./routes/UsuariosScanRoute')
+        const FichaRoute = require("./routes/FichasRoute")
 
         //Instanciar a minha rotas
-        //Rota de Convidados
-        new ConvidadoRoute(this.app)
-        new ContatoRoute(this.app)
-        new ProdutoRoute(this.app)
+
+
         new CompraRoute(this.app)
-        new ClienteRoute(this.app)
-        new SetorRoute(this.app)
+        new UsuarioScanRoute(this.app)
         new UsuarioRoute(this.app)
+        new FichaRoute(this.app)
 
         //Rota Raíz
         this.app.get('/', function (req, res) {
-            res.send('Bem-vindo a API - Smart Market!')
+            res.send('Bem-vindo ao TesteEstagio!')
         })
 
         //Listen
-        this.app.listen(process.env.PORT || config.port, () => {
-            console.log('API - Smart Market rodando na porta: ' + config.port)
-        })
+        this.app.listen(3000, () => console.log("conectado!"))
 
     }
 }
 
 new App().init()
-
-
-//dbuser: t25-smart-market
-//dbpassword: t25-ht

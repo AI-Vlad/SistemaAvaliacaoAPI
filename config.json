@@ -1,12 +1,12 @@
-{
-    "development": {
-        "port": 3000,
-        "db": {
-            "nome": "smart-market-api",
-            "url": "ds233268.mlab.com",
-            "port": "33268",
-            "user": "t25-smart-market",
-            "password": "t25-ht"
-        }
-    }
-}
+ {
+     "development": {
+         "port": 3000,
+         "db": {
+             "nome": "smart-market-api",
+             "url": "ds233268.mlab.com",
+             "port": "33268",
+             "user": "Teste",
+             "password": "testesenha"
+         }
+     }
+ }

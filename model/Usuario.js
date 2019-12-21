@@ -1,26 +1,30 @@
-const mongoose = require('mongoose');
+const Mongoose = require('mongoose')
+class Usuario extends Mongoose.Schema {
 
-
-class Usuario extends mongoose.Schema {
-
-    constructor(){
-
+    constructor() {
         super({
-            ativo: {
-                type: Boolean
+            nome: {
+                type: String,
+                required: true
             },
-            username: {
+
+            email: {
+                type: String,
+                required: true
+            },
+            cpf: {
                 type: String
             },
             senha: {
-                type: String
+                type: String,
+                required: true
             },
-            tipo: { 
-                type: String
-            }
-        }); 
-        mongoose.model('Usuario', this);
+
+
+        })
+        Mongoose.model('Usuario', this)
+
     }
 }
 
-module.exports = Usuario;
+module.exports = Usuario
