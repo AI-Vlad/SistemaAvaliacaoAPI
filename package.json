@@ -1,7 +1,7 @@
 {
-  "name": "t25-smart-market-api",
+  "name": "sistemaavaliacao-api",
   "version": "1.0.0",
-  "description": "API Smart Market - T25",
+  "description": "API Sistema",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

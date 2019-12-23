@@ -12,7 +12,6 @@ const config = require('./config.json')[env]
 
 const Usuario = require('./model/Usuario')
 const UsuarioScan = require('./model/UsuarioScan');
-const Compra = require("./model/Compra");
 
 const Ficha = require("./model/Ficha")
 
@@ -33,8 +32,8 @@ class App {
         this.app.use(Express.json())
         this.app.use(Cors())
 
-        //Conectando com o banco mLab
-        Mongoose.connect('mongodb+srv://Teste:testesenha@cluster0-1kj4i.mongodb.net/test?retryWrites=true&w=majority', {
+        
+        Mongoose.connect('mongodb+srv://Teste:testeestagio@cluster0-1kj4i.mongodb.net/test?retryWrites=true&w=majority', {
                 useNewUrlParser: true,
 
                 useUnifiedTopology: true,
@@ -49,12 +48,12 @@ class App {
 
         new Usuario()
         new UsuarioScan()
-        new Compra()
+       
         new Ficha()
 
         //Importações das rotas
 
-        const CompraRoute = require('./routes/ComprasRoute')
+        
         const UsuarioRoute = require('./routes/UsuariosRoute')
         const UsuarioScanRoute = require('./routes/UsuariosScanRoute')
         const FichaRoute = require("./routes/FichasRoute")
@@ -62,7 +61,7 @@ class App {
         //Instanciar a minha rotas
 
 
-        new CompraRoute(this.app)
+        
         new UsuarioScanRoute(this.app)
         new UsuarioRoute(this.app)
         new FichaRoute(this.app)
