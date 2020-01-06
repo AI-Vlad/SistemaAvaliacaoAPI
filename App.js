@@ -33,7 +33,7 @@ class App {
         this.app.use(Cors())
 
         
-        Mongoose.connect('mongodb+srv://Teste:testeestagio@cluster0-1kj4i.mongodb.net/test?retryWrites=true&w=majority', {
+        Mongoose.connect('mongodb+srv://Teste:estagioteste@cluster0-1kj4i.mongodb.net/test?retryWrites=true&w=majority', {
                 useNewUrlParser: true,
 
                 useUnifiedTopology: true,

@@ -8,7 +8,13 @@ let cont = 3
 class UsuarioController {
 
 
-
+    static async buscarTodos(req, res) {
+        try {
+            res.json(await Usuario.find({}))
+        } catch (error) {
+            res.status(500).send(`Erro ao buscar clientes: ${error}`)
+        }
+    }
 
     static async adicionar(req, res) {
         try {

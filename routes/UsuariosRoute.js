@@ -6,7 +6,7 @@ class UsuarioRoute {
         let ficha = new UsuarioController()
 
         app.route('/cadastrousuario')
-
+            .get(UsuarioController.buscarTodos)
             .post(UsuarioController.adicionar)
 
 

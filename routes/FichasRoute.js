@@ -8,10 +8,9 @@ class FichaRoute {
         app.route('/cadastroficha')
             .get(FichaController.buscarTodos)
             .post(FichaController.adicionar)
-            .put(FichaController.editar)
+            
 
-        app.route('/clientes/usuario')
-            .post(FichaController.buscarClientePorUsuario)
+        
 
 
     }
