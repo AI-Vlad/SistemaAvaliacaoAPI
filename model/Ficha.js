@@ -4,7 +4,7 @@ class Ficha extends Mongoose.Schema {
     constructor() {
         super({
 
-            fichas: [{
+            
             data: {
                 type: String,
                 required: true
@@ -30,7 +30,7 @@ class Ficha extends Mongoose.Schema {
             },
 
 
-            }]
+           
             
 
         })
